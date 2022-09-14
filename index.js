@@ -1,5 +1,37 @@
 //inicio
 
+const mostrarPersonajes = (personajes) => {
+    const contenedorPersonajes = document.getElementById("personaje-contenedor")
+
+    personajes.forEach(personaje => {
+        const div = document.createElement("div")
+        div.classList.add("card")
+        div.innerHTML += `<div class="card" style="width: 18rem;">
+                            <img src="${personaje.img}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h2 class="card-title">${personaje.nombre}</h2>
+                                <h5 class="card-text">Descripción:  ${personaje.desc}</h5>
+                                <b class="card-text">Precio:$ ${personaje.precio}</b>
+                                <button class="btn btn-primary" id=boton${personaje.id}>Comprar</button>
+                            </div>
+                        </div>`
+
+        contenedorPersonajes.appendChild(div)
+
+        const boton = document.getElementById(`boton${personaje.id}`)
+
+        boton.addEventListener('click', () => {
+            alert(`Usted eligio a ${personaje.nombre}`)
+            alert(`El precio es de ${personaje.precio}`)
+        })
+    })
+}
+mostrarPersonajes(personajes)
+
+
+
+
+/*
 let saldo = 2000
 
 let usuario = prompt("Para comenzar ingrese su nombre por favor")
@@ -80,4 +112,4 @@ if (filtro === 3) {
     let filtradoID = personajes.find(item => item.ID === ID);
     console.log(filtradoID);
 }
-
+*/

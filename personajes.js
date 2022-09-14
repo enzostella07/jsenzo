@@ -1,0 +1,40 @@
+let personajes = [
+    {
+        id: 0,
+        nombre: "Mengano",
+        desc: "Combatiente",
+        img: `imagenes/mengano.jpg`,
+        precio: 500
+    },
+
+    {
+        id: 1,
+        nombre: "Pablito",
+        desc: "constructor",
+        img: `imagenes/pablito.jpg`,
+        precio: 600
+    },
+
+    {
+        id: 2,
+        nombre: "Fulano",
+        desc: "¿?",
+        img: `imagenes/Fulano.jpg`,
+        precio: 700
+    },
+
+    {
+        id: 3,
+        nombre: "Menganito",
+        desc: "Trepa Muros",
+        img: `imagenes/menganito.jpg`,
+        precio: 900
+    },
+    {
+        id: 4,
+        nombre: "Messi",
+        desc: "Tenista",
+        img: `imagenes/Messi.jpg`,
+        precio: 2000
+    },
+];
