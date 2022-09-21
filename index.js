@@ -1,5 +1,13 @@
 //inicio
 
+arrayCarrito = []
+window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('carro')){
+        arrayCarrito = JSON.parse(localStorage.getItem('carro'));
+        llenarCarrito();
+        }
+  });
+
 const mostrarPersonajes = (personajes) => {
     const contenedorPersonajes = document.getElementById("personaje-contenedor")
 
@@ -20,13 +28,60 @@ const mostrarPersonajes = (personajes) => {
 
         const boton = document.getElementById(`boton${personaje.id}`)
 
+        /*
         boton.addEventListener('click', () => {
             alert(`Usted eligio a ${personaje.nombre}`)
             alert(`El precio es de ${personaje.precio}`)
         })
+        */
+
+        boton.addEventListener("click", () => {
+            agregarCarrito(personaje.id)
+        })
     })
 }
+
+let carrito = document.getElementById("contenedor__carrito")
+const agregarCarrito = (idProducto) => {
+    if (arrayCarrito.some((tarjeta) => tarjeta.id === idProducto)){
+        alert("el producto ya esta en el carrito")
+    } else{
+        let item = personajes.find((tarjeta) => tarjeta.id === idProducto)
+        arrayCarrito.push(item)
+    }
+    llenarCarrito()
+}
+
+
+const llenarCarrito = () => {
+    carrito.innerHTML = ""
+    arrayCarrito.forEach(personaje => {
+        const div = document.createElement("div")
+        div.classList.add("card")
+        div.innerHTML += `<div class="card" style="width: 18rem;">
+                            <img src="${personaje.img}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h2 class="card-title">${personaje.nombre}</h2>
+                                <h5 class="card-text">Descripción:  ${personaje.desc}</h5>
+                                <b class="card-text">Precio:$ ${personaje.precio}</b>
+                                <button class="btn btn-primary" id=boton${personaje.id}>Comprar</button>
+                            </div>
+                        </div>`
+
+                        carrito.appendChild(div)
+    })
+    let totalPrecios = arrayCarrito.reduce((acumulador, item) => acumulador + item.precio, 0)
+    let insertarPrecios = document.getElementById("total__carrito")
+    insertarPrecios.innerHTML = `
+                                <p>$${totalPrecios}</p>
+    `
+
+    localStorage.setItem("carro", JSON.stringify(arrayCarrito))
+
+}
 mostrarPersonajes(personajes)
+
+
 
 
 

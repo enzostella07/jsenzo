@@ -24,6 +24,13 @@ header h1 {
     left: 20px;
 }
 
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column-reverse;
+    padding: 50px 20px;
+}
 
 #personaje-contenedor {
     display: grid;
@@ -31,6 +38,11 @@ header h1 {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
+}
+
+.line{
+    border: 1px solid black;
+    width: 90%;
 }
 
 
