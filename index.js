@@ -62,11 +62,14 @@ const llenarCarrito = () => {
                             <img src="${personaje.img}" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h2 class="card-title">${personaje.nombre}</h2>
-                                <h5 class="card-text">Descripción:  ${personaje.desc}</h5>
-                                <b class="card-text">Precio:$ ${personaje.precio}</b>
+                                </div>
+                                </div>`
+                                /*
                                 <button class="btn btn-primary" id=boton${personaje.id}>Comprar</button>
-                            </div>
-                        </div>`
+                                <b class="card-text">Precio:$ ${personaje.precio}</b>
+                                <h5 class="card-text">Descripción:  ${personaje.desc}</h5>
+                                
+                        */ 
 
                         carrito.appendChild(div)
     })
