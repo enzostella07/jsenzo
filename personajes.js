@@ -1,4 +1,4 @@
-let personajes = [
+const personajes = [
     {
         id: 0,
         nombre: "Mengano",
