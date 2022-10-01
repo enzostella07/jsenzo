@@ -1,5 +1,5 @@
 //inicio
-arrayCarrito = []
+let arrayCarrito = []
 window.addEventListener('DOMContentLoaded', () => {
     if (localStorage.getItem('carro')) {
         arrayCarrito = JSON.parse(localStorage.getItem('carro'));
